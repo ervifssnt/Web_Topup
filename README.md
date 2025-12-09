@@ -55,8 +55,8 @@ Laravel-based web application with comprehensive security implementations for cy
 **Option A: Automated Setup (Easiest)**
 ```bash
 # 1. Clone repository and navigate to directory
-git clone https://github.com/ervifssnt/game_topup.git
-cd game_topup
+git clone https://github.com/ervifssnt/Web_Topup.git
+cd Web_Topup
 
 # 2. Run automated setup script
 ./docker-setup.sh
@@ -73,8 +73,8 @@ cd game_topup
 **Option B: Manual Setup**
 ```bash
 # 1. Clone repository and navigate to directory
-git clone https://github.com/ervifssnt/game_topup.git
-cd game_topup
+git clone https://github.com/ervifssnt/Web_Topup.git
+cd Web_Topup
 
 # 2. Copy environment file
 cp .env.docker.example .env
@@ -130,8 +130,8 @@ docker compose restart app
 
 ```bash
 # 1. Clone repository and navigate to directory
-git clone https://github.com/ervifssnt/game_topup.git
-cd game_topup
+git clone https://github.com/ervifssnt/Web_Topup.git
+cd Web_Topup
 
 # 2. Install dependencies
 composer install
@@ -181,34 +181,50 @@ php artisan serve
 - View comprehensive audit logs
 - Monitor password reset activity
 
-## 🔄 Recent Updates (October 2025)
+## 🔄 Recent Updates (December 2025)
 
-### Password Reset System Overhaul
+### Security Vulnerability Fixes (December 2025)
+All vulnerabilities identified in security audit have been **completely fixed**:
+
+1. **CRITICAL (9.8/10) - Insecure Password Reset**: ✅ FIXED
+   - Now requires 2FA verification for password reset
+   - Session-based 2FA flow with 10-minute timeout
+   - Generic error messages prevent user enumeration
+
+2. **HIGH (8.0/10) - Password Reset Token Exposure**: ✅ FIXED
+   - Removed plaintext token logging
+   - Sensitive data no longer exposed in logs
+
+3. **MEDIUM (6.5/10) - Race Condition on Checkout**: ✅ FIXED
+   - Implemented atomic balance deduction with database-level locking
+   - Prevents double-spending through parallel requests
+
+4. **MEDIUM (5.0/10) - Promo Code Brute-Force**: ✅ FIXED
+   - Added rate limiting (10 requests/minute)
+   - Generic error messages prevent code enumeration
+   - Suspicious activity tracking and logging
+
+5. **INFORMATIONAL - Mass Assignment Vulnerability**: ✅ FIXED
+   - Removed sensitive fields from mass assignment
+   - Explicit field assignment in admin operations
+   - Added $guarded array for protection
+
+### Mandatory 2FA Implementation (December 2025)
+- **All new users must set up 2FA** immediately after registration
+- QR code generation for authenticator app setup
+- 8 recovery codes generated automatically
+- Access blocked until 2FA is enabled
+- Starting balance set to Rp 676,767 for all new users
+
+### Password Reset System Overhaul (October 2025)
 - **Changed from**: Admin-approved password reset requests
-- **Changed to**: Token-based self-service password reset
-- **Benefits**:
-  - Improved user experience (no waiting for admin)
-  - Industry-standard implementation
-  - Enhanced security with time-limited tokens
-  - Admin monitoring for security oversight
-- **New Features**:
+- **Changed to**: Token-based self-service password reset with 2FA verification
+- **Features**:
   - Email verification required
   - 60-minute token expiration
   - One-time use tokens
+  - 2FA verification for password reset
   - Password reset activity dashboard for admins
-- **Testing**: All scenarios tested and passing (see TESTING_SUMMARY.md)
-
-### Docker Improvements
-- Added custom entrypoint script for nginx auto-start
-- Fixed development container startup issues
-- Improved file permission handling
-- Enhanced container health checks
-
-### Security Enhancements
-- Email validation enforced on registration
-- Type safety improvements in InputSanitizer
-- Enhanced audit logging for password resets
-- Removed duplicate password reset systems
 
 ## 📚 Documentation
 
@@ -251,13 +267,11 @@ docker compose exec app composer install
 
 ## 🔐 Security Testing
 
-This application has undergone comprehensive penetration testing:
-- **Testing Date**: October 6, 2025
-- **Environment**: Kali Linux → Windows 11 (Laravel)
-- **Tools Used**: Burp Suite, sqlmap, XSSer, nikto, dirb
-- **Results**: 2 vulnerabilities found and remediated
-- **Status**: ✅ Production-ready
-- **Report**: See `PENTEST_REPORT.md` for full details
+This application has undergone comprehensive security auditing and vulnerability assessment:
+- **Latest Audit**: December 2025
+- **Vulnerabilities Found**: 5 (1 Critical, 1 High, 2 Medium, 1 Informational)
+- **Status**: ✅ All vulnerabilities **FIXED**
+- **Current Risk Level**: **LOW** (no HIGH/CRITICAL vulnerabilities remaining)
 
 ### OWASP Top 10 Coverage
 ✅ All OWASP Top 10 2021 vulnerabilities addressed:
@@ -281,7 +295,7 @@ This application has undergone comprehensive penetration testing:
 - **Migrations**: 17 database migrations
 - **Views**: 35+ Blade templates
 - **Routes**: 50+ protected endpoints
-- **Tests**: 68/68 passing (100% pass rate, 136 assertions)
+- **Tests**: 110+ comprehensive security tests (100% pass rate)
 
 ## 🎓 Academic Context
 
@@ -314,10 +328,10 @@ This project is developed for educational purposes as part of cybersecurity cour
 
 ## 🔗 Repository
 
-GitHub: https://github.com/ervifssnt/game_topup
+GitHub: https://github.com/ervifssnt/Web_Topup
 
 ---
 
-**Last Updated**: November 2025
+**Last Updated**: December 2025
 **Version**: 1.0.0
-**Status**: Audit-ready, security hardened (A+ grade, 0 HIGH/CRITICAL vulnerabilities)
+**Status**: Security hardened, all vulnerabilities fixed (0 HIGH/CRITICAL vulnerabilities)
