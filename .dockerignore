@@ -1,0 +1,57 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docker
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# Node
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Testing
+tests
+phpunit.xml
+.phpunit.result.cache
+
+# Documentation
+README.md
+PENTEST_REPORT.md
+*.md
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Storage (will be mounted as volume)
+storage/app/public/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/testing/*
+storage/framework/views/*
+storage/logs/*
+
+# Cache
+bootstrap/cache/*
+vendor
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backups
+*.sql
+*.sql.gz
+*.backupDOCKER-SECURITY.md

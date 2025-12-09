@@ -1,0 +1,57 @@
+*.log
+.DS_Store
+.env
+.env.backup
+.env.production
+.phpactor.json
+.phpunit.result.cache
+/.fleet
+/.idea
+/.nova
+/.phpunit.cache
+/.vscode
+/.zed
+/auth.json
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/vendor
+Homestead.json
+Homestead.yaml
+Thumbs.db
+/storage/framework/sessions/*
+.env.docker
+CLAUDE.md
+
+# Backup files
+*.bak
+*.backup
+*.tmp
+*~
+*.swp
+*.swo
+*.zip
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Test/Debug
+npm-debug.log
+yarn-error.log
+
+# Audit and assessment documents (coursework materials)
+AUDIT-READY-SUMMARY.md
+SECURITY-CHECKLIST.md
+*.pdf
+*.docx
+*Assessment*.pdf
+*Vulnerability*.pdf
