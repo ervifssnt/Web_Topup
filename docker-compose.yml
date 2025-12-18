@@ -26,8 +26,8 @@ services:
       - DB_DATABASE=${DB_DATABASE:-laravel_topup}
       - DB_USERNAME=${DB_USERNAME:-laravel_user}
       - DB_PASSWORD=${DB_PASSWORD:-secure_password}
-      - CACHE_DRIVER=file
-      - SESSION_DRIVER=file
+      - CACHE_DRIVER=database
+      - SESSION_DRIVER=database
       - QUEUE_CONNECTION=database
     depends_on:
       mysql:
